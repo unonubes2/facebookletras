@@ -526,25 +526,37 @@ empezarDetener();
 
 
 
-
-
+try {
+    
 
 FBInstant.initializeAsync()
         .then(function() {        
             //Load all assets and start the game
-            game.loadAllAssets(function() {
+
                 FBInstant.startGameAsync()
                 .then(function() {
                    iniciatodo();
                 });
-            }, function(percent) {
-                FBInstant.setLoadingProgress(percent);
-            });
+         
+                FBInstant.setLoadingProgress(100);
+           
         });
 
 
+} catch (error) {
+ console.log(error);
 
+}
 
+try {
+    
+    iniciatodo();
+    
+    } catch (error) {
+     console.log(error);
+    
+    }
+    
 
  </script>
   </body>
